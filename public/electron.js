@@ -12,14 +12,13 @@ let mainWindow;
 const autoUpdater = require('electron-updater').autoUpdater;
 
 function createWindow() {
-  	mainWindow = new BrowserWindow({width: 900, height: 680});
+  	mainWindow = new BrowserWindow({width: 900, height: 680, minWidth: 600, minHeight: 500});
   	mainWindow.loadURL(
 		isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
   	);
   	mainWindow.on('closed', () => (mainWindow = null));
   	initAutoUpdate();
 
-  	// Open the DevTools.
   	if(isDev){
     	mainWindow.webContents.openDevTools();
   	}
