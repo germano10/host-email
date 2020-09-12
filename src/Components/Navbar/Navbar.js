@@ -39,72 +39,74 @@ const Navbar = (props) => {
     }, [open]);
 
     return (
-        <AppBar position="static">
-            <div className="topBar">    
-                <Toolbar>
-                    <Button data-link="/" className="buttons" color="inherit">
-                        <div className="container-button">
-                            <Email />
-                            <span>Caixa de entrada</span>
-                        </div>
-                    </Button>
-                    <Button data-link="/rascunho" color="inherit">
-                        <div className="container-button">
-                            <Drafts />
-                            <span>Rascunhos</span>
-                        </div>
-                    </Button>
-                    <Button data-link="/enviados" color="inherit">
-                        <div className="container-button">
-                            <Send />
-                            <span>Enviados</span>
-                        </div>
-                    </Button>
-                    <Button data-link="/spam" color="inherit">
-                        <div className="container-button">
-                            <Warning />
-                            <span>Spam</span>
-                        </div>
-                    </Button>
-                    <Button data-link="/lixeira" color="inherit">
-                        <div className="container-button">
-                            <Delete />
-                            <span>Lixeira</span>
-                        </div>
-                    </Button>
-                    <Button data-link="/arquivos" color="inherit">
-                        <div className="container-button">
-                            <Archive />
-                            <span>Arquivos</span>
-                        </div>
-                    </Button>
-                </Toolbar>
-                <div className="selecionar-caixa-entrada">
-                    <IconButton color="inherit" ref={anchorRef} aria-controls={open ? 'menu-list-grow' : undefined} aria-haspopup="true" onClick={handleToggle}>
-                        <div className="container-button">
-                            <AllInbox />
-                        </div>
-                    </IconButton>
+        <div className="navBar">
+            <AppBar position="static">
+                <div className="topBar">    
+                    <Toolbar>
+                        <Button data-link="/" className="buttons" color="inherit">
+                            <div className="container-button">
+                                <Email />
+                                <span>Caixa de entrada</span>
+                            </div>
+                        </Button>
+                        <Button data-link="/rascunho" color="inherit">
+                            <div className="container-button">
+                                <Drafts />
+                                <span>Rascunhos</span>
+                            </div>
+                        </Button>
+                        <Button data-link="/enviados" color="inherit">
+                            <div className="container-button">
+                                <Send />
+                                <span>Enviados</span>
+                            </div>
+                        </Button>
+                        <Button data-link="/spam" color="inherit">
+                            <div className="container-button">
+                                <Warning />
+                                <span>Spam</span>
+                            </div>
+                        </Button>
+                        <Button data-link="/lixeira" color="inherit">
+                            <div className="container-button">
+                                <Delete />
+                                <span>Lixeira</span>
+                            </div>
+                        </Button>
+                        <Button data-link="/arquivos" color="inherit">
+                            <div className="container-button">
+                                <Archive />
+                                <span>Arquivos</span>
+                            </div>
+                        </Button>
+                    </Toolbar>
+                    <div className="selecionar-caixa-entrada">
+                        <IconButton color="inherit" ref={anchorRef} aria-controls={open ? 'menu-list-grow' : undefined} aria-haspopup="true" onClick={handleToggle}>
+                            <div className="container-button">
+                                <AllInbox />
+                            </div>
+                        </IconButton>
+                    </div>
                 </div>
-            </div>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                    <Grow {...TransitionProps} style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}>
-                        <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
-                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                    <MenuItem selected={true} onClick={handleClose}>E-mail 1</MenuItem>
-                                    <MenuItem onClick={handleClose}>E-mail 2</MenuItem>
-                                    <MenuItem onClick={handleClose}>E-mail 3</MenuItem>
-                                    <Divider />
-                                    <MenuItem onClick={handleClose}>Novo Host</MenuItem>
-                                </MenuList>
-                            </ClickAwayListener>
-                        </Paper>
-                    </Grow>
-                )}
-            </Popper>
-        </AppBar>
+                <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                    {({ TransitionProps, placement }) => (
+                        <Grow {...TransitionProps} style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}>
+                            <Paper>
+                                <ClickAwayListener onClickAway={handleClose}>
+                                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                        <MenuItem selected={true} onClick={handleClose}>E-mail 1</MenuItem>
+                                        <MenuItem onClick={handleClose}>E-mail 2</MenuItem>
+                                        <MenuItem onClick={handleClose}>E-mail 3</MenuItem>
+                                        <Divider />
+                                        <MenuItem onClick={handleClose}>Novo Host</MenuItem>
+                                    </MenuList>
+                                </ClickAwayListener>
+                            </Paper>
+                        </Grow>
+                    )}
+                </Popper>
+            </AppBar>
+        </div>
     );
 }
 
