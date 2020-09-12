@@ -5,11 +5,11 @@ import "./styles.css";
 
 
 
-const CaixaEntrada = (props) => {
+const Lixeira = (props) => {
     
     return (
-        <Template  name="Caixa de Entrada" />
+        <Template  name="Lixeira" />
     );
 }
 
-export default CaixaEntrada;
+export default Lixeira;

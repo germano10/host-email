@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {AppBar, Toolbar, IconButton, Button, Grow, Paper, Popper, ClickAwayListener, MenuItem, MenuList, Divider} from '@material-ui/core';
 import { Email, Drafts, Send, Warning, Delete, Archive, AllInbox } from '@material-ui/icons';
+import { Link } from "react-router-dom";
 
 import "./styles.css";
 
@@ -21,7 +22,7 @@ const Navbar = (props) => {
         setOpen(false);
     };
 
-    function handleListKeyDown(event) {
+    const handleListKeyDown = (event) => {
         if (event.key === 'Tab') {
             event.preventDefault();
             setOpen(false);
@@ -43,42 +44,54 @@ const Navbar = (props) => {
             <AppBar position="static">
                 <div className="topBar">    
                     <Toolbar>
-                        <Button data-link="/" className="buttons" color="inherit">
-                            <div className="container-button">
-                                <Email />
-                                <span>Caixa de entrada</span>
-                            </div>
-                        </Button>
-                        <Button data-link="/rascunho" color="inherit">
-                            <div className="container-button">
-                                <Drafts />
-                                <span>Rascunhos</span>
-                            </div>
-                        </Button>
-                        <Button data-link="/enviados" color="inherit">
-                            <div className="container-button">
-                                <Send />
-                                <span>Enviados</span>
-                            </div>
-                        </Button>
-                        <Button data-link="/spam" color="inherit">
-                            <div className="container-button">
-                                <Warning />
-                                <span>Spam</span>
-                            </div>
-                        </Button>
-                        <Button data-link="/lixeira" color="inherit">
-                            <div className="container-button">
-                                <Delete />
-                                <span>Lixeira</span>
-                            </div>
-                        </Button>
-                        <Button data-link="/arquivos" color="inherit">
-                            <div className="container-button">
-                                <Archive />
-                                <span>Arquivos</span>
-                            </div>
-                        </Button>
+                        <Link to="/" className="navSelected">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Email />
+                                    <span>Caixa de entrada</span>
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link to="/rascunho">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Drafts />
+                                    <span>Rascunhos</span>
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link to="/enviado">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Send />
+                                    <span>Enviados</span>
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link to="/spam">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Warning />
+                                    <span>Spam</span>
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link to="/lixeira">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Delete />
+                                    <span>Lixeira</span>
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link to="/arquivo">
+                            <Button color="inherit">
+                                <div className="container-button">
+                                    <Archive />
+                                    <span>Arquivos</span>
+                                </div>
+                            </Button>
+                        </Link>
                     </Toolbar>
                     <div className="selecionar-caixa-entrada">
                         <IconButton color="inherit" ref={anchorRef} aria-controls={open ? 'menu-list-grow' : undefined} aria-haspopup="true" onClick={handleToggle}>

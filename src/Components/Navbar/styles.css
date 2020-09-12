@@ -48,6 +48,18 @@
     z-index: 1;
 }
 
+.navSelected{
+    background-color: #6495ed;
+}
+
+#root > div.navBar > header > div > div.MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters > a{
+    text-decoration: none !important;
+    color: #FFF !important;
+    height: 64px;
+    position: relative;
+    display: flex;
+}
+
 @media screen and (max-width: 800px) {
     
 }
