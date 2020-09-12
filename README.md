@@ -4,5 +4,6 @@
 
 ## Host E-mail
 
+- Redux
 - React.js
 - Electron.js
