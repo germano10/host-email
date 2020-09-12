@@ -7,8 +7,25 @@ import "./styles.css";
 
 const Template = (props) => {
 
+    const itens = document.getElementsByClassName("item");
+
+    const removeSelected = async () => {
+        Object.keys(itens).forEach((item) => {
+            itens[item].classList.remove('selected');
+        });
+    }
+
     useEffect(() => {
         console.log(props);
+
+        Object.keys(itens).forEach((item) => {
+            itens[item].addEventListener('click', () => {
+                removeSelected().then(() => {
+                    itens[item].classList.add('selected');
+                }); 
+            });
+        });
+
     }, [props]);
     
     return (
@@ -17,22 +34,22 @@ const Template = (props) => {
                 <Grid item xs={4}>
                     <div className="container-emails">
                         <ul className="lista-emails">
-                            <li className="selected"><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
-                            <li><span>item</span>  <ChevronRight /></li>
+                            <li className="item selected"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
+                            <li className="item"><span>item</span>  <ChevronRight /></li>
                         </ul>
                     </div>
                 </Grid>

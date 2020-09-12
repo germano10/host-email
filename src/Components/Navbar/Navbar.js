@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 
 const Navbar = (props) => {
+
+    const links = document.getElementsByClassName("linkNav");
     
     const [open, setOpen] = useState(false);
     const anchorRef = useRef(null);
@@ -29,9 +31,23 @@ const Navbar = (props) => {
         }
     }
 
+    const removeSelected = async () => {
+        Object.keys(links).forEach((item) => {
+            links[item].classList.remove("navSelected");
+        });   
+    }
+
     const prevOpen = useRef(open);
 
     useEffect(() => {
+        Object.keys(links).forEach((item) => {
+            links[item].addEventListener('click', (e) => {
+                removeSelected().then(() => {
+                    links[item].classList.add("navSelected");
+                });
+            });
+        });        
+
         if (prevOpen.current === true && open === false) {
             anchorRef.current.focus();
           }
@@ -44,7 +60,7 @@ const Navbar = (props) => {
             <AppBar position="static">
                 <div className="topBar">    
                     <Toolbar>
-                        <Link to="/" className="navSelected">
+                        <Link to="/" className="linkNav navSelected">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Email />
@@ -52,7 +68,7 @@ const Navbar = (props) => {
                                 </div>
                             </Button>
                         </Link>
-                        <Link to="/rascunho">
+                        <Link className="linkNav" to="/rascunho">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Drafts />
@@ -60,7 +76,7 @@ const Navbar = (props) => {
                                 </div>
                             </Button>
                         </Link>
-                        <Link to="/enviado">
+                        <Link className="linkNav" to="/enviado">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Send />
@@ -68,7 +84,7 @@ const Navbar = (props) => {
                                 </div>
                             </Button>
                         </Link>
-                        <Link to="/spam">
+                        <Link className="linkNav" to="/spam">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Warning />
@@ -76,7 +92,7 @@ const Navbar = (props) => {
                                 </div>
                             </Button>
                         </Link>
-                        <Link to="/lixeira">
+                        <Link className="linkNav" to="/lixeira">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Delete />
@@ -84,7 +100,7 @@ const Navbar = (props) => {
                                 </div>
                             </Button>
                         </Link>
-                        <Link to="/arquivo">
+                        <Link className="linkNav" to="/arquivo">
                             <Button color="inherit">
                                 <div className="container-button">
                                     <Archive />
