@@ -5,11 +5,11 @@ import "./styles.css";
 
 
 
-const CaixaEntrada = (props) => {
+const Spam = (props) => {
     
     return (
-        <Template  name="Caixa de Entrada" />
+        <Template name="Spam" />
     );
 }
 
-export default CaixaEntrada;
+export default Spam;

@@ -3,13 +3,11 @@ import React  from 'react';
 import Template from "../Template/Template";
 import "./styles.css";
 
-
-
-const CaixaEntrada = (props) => {
+const Arquivo = (props) => {
     
     return (
-        <Template  name="Caixa de Entrada" />
+        <Template name="Arquivos" />
     );
 }
 
-export default CaixaEntrada;
+export default Arquivo;
